@@ -61,7 +61,7 @@ class Election_Data_Address {
     // Hack to prevent address custom post type from registering when address lookup is disabled.
     if (!isset($ed_post_types['address'])) {
       return;
-    } 
+    }
 
     $this->post_type = $ed_post_types['address'];
 
@@ -630,6 +630,10 @@ class Election_Data_Address {
   *
   */
   public function initialize() {
+    // Hack to prevent address custom post type from registering when address lookup is disabled.
+    if (!isset($ed_post_types['address'])) {
+      return;
+    }
     $this->custom_post->initialize();
   }
 
